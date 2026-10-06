@@ -1,0 +1,284 @@
+{
+  "id": "sigf/peakcraft-aeiron",
+  "version": "0.1.0",
+  "name": "PeakCraft (SkyCraft port)",
+  "tagline": "Play PEAK as a Minecraft player: Minecraft movement, HUD, inventory and placed blocks on PEAK's mountain (a SkyCraft port).",
+  "how_to_play": [
+    "Play PEAK as a Minecraft player: Minecraft's movement, HUD and inventory on PEAK's mountain, with blocks that PEAK draws, lights and hides behind its rocks.",
+    "Press Play: Minecraft starts first and waits hidden, then PEAK. Start a solo game: in the airport the Minecraft hotbar shows and Minecraft has your scout.",
+    "G is PEAK's interact (kiosk, luggage, campfires), Esc PEAK's pause menu, O Minecraft's menu. Every other key is Minecraft's: E inventory, F5 camera, T chat.",
+    "The world starts in Creative. Type /gamemode survival so PEAK's cold, heat, poison and thorns cost Minecraft hearts; a Minecraft death kills your scout.",
+    "If Minecraft closes or hangs, PEAK gives you its own controls back within a few seconds and links again when Minecraft returns."
+  ],
+  "kind": "passthrough",
+  "games": [
+    {
+      "game": "peak",
+      "role": "host",
+      "label": "PEAK",
+      "engine": "PEAK (Unity 6, Mono, x64) + BepInEx 5 plugin aeironnarmiento.PeakCraft (C#)",
+      "apps": {
+        "steam": "3527290"
+      },
+      "runtime": "PEAK 2.5.a (the author's build); SIGF compiled against Steam build 25667990; no version check in the plugin"
+    },
+    {
+      "game": "minecraft",
+      "role": "guest",
+      "label": "Minecraft",
+      "engine": "Minecraft Java 26.3 + SkyCraft's Fabric mod with PeakCraft's changes (Java)",
+      "mc": "26.3",
+      "loader": "fabric@0.19.5",
+      "java": "25"
+    }
+  ],
+  "requires": [
+    {
+      "id": "bepinex",
+      "version": "5.4.23.5",
+      "license": "MIT AND LGPL-2.1, shipped unchanged",
+      "page": "https://github.com/BepInEx/BepInEx/releases/tag/v5.4.23.5",
+      "note": "installed into the PEAK folder by the app",
+      "source": {
+        "url": "https://github.com/SIGFAI/peakcraft-aeiron/releases/download/v0.1.0/BepInEx_win_x64_5.4.23.5.zip",
+        "sha256": "82f9878551030f54657792c0740d9d51a09500eeae1fba21106b0c441e6732c4"
+      }
+    },
+    {
+      "id": "fabric-loader",
+      "version": "0.19.5"
+    },
+    {
+      "id": "fabric-api",
+      "version": "0.161.0+26.3",
+      "note": "in the Minecraft pack (downloaded from Modrinth)"
+    }
+  ],
+  "install": [
+    {
+      "game": "peak",
+      "strategy": "game-dir-snapshot",
+      "loader": "bepinex",
+      "files": [
+        {
+          "src": "BepInEx_win_x64_5.4.23.5.zip",
+          "dst": "{game}",
+          "unpack": true,
+          "contents": [
+            {
+              "path": ".doorstop_version",
+              "sha256": "75a2f501000d4fe28f74bc7ee66dae5581959d28b6c44f0c1b0c05cd5ba261e6"
+            },
+            {
+              "path": "changelog.txt",
+              "sha256": "b184d858cb0ff6614ca8ce0247fb0d186cabc91ed7e4d4d9d57ea3d744ce98b5"
+            },
+            {
+              "path": "doorstop_config.ini",
+              "sha256": "4d5c6dfa0f771c6a5b1b0c559aca0bd0ece7d08b08fff894708dc3b73ce73cfc"
+            },
+            {
+              "path": "winhttp.dll",
+              "sha256": "8c6cdbc38836dee87e3368f5de1994d7c0ccebf29e4ce7aba3c0981f9375412c"
+            },
+            {
+              "path": "BepInEx/core/0Harmony.dll",
+              "sha256": "1a21cc03424fc82c3dd1346905d16494536b9595ae4162228d99fb7c285c1031"
+            },
+            {
+              "path": "BepInEx/core/0Harmony.xml",
+              "sha256": "d1f02fc3ada3a13da307de421225bfe56ebe24064370980979391c4be021672f"
+            },
+            {
+              "path": "BepInEx/core/0Harmony20.dll",
+              "sha256": "c755a5ab2712915a32f9a850d580a8c1b70ff1653bc76600f2767aa8ffccc663"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.dll",
+              "sha256": "8255b28902886085c578b9e427d3073c97002db85176d2090cdeda90ef14ce70"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.Harmony.dll",
+              "sha256": "00c8f2ac48593e4d45ce4eb26ce4e68b18113c5c489b38b8bf0850f65830d601"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.Harmony.xml",
+              "sha256": "a04fedf08f7c81f5d01aba6f2840a7ffce50b79bbd24587d8dbe69ab73971d29"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.Preloader.dll",
+              "sha256": "55d3895351a9d16b63b6f35f1c01b44ac650979e853d0bd3a442b92a082af64f"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.Preloader.xml",
+              "sha256": "33275b2783b7b99495a02c098ee86d6a9a2783e884a5c9369021f20c94cf99e7"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.xml",
+              "sha256": "7ba2266061b9f8a9f146218a312bfdd0d7f2b53a99a7e66c957215c6b66ca0d7"
+            },
+            {
+              "path": "BepInEx/core/HarmonyXInterop.dll",
+              "sha256": "7ce1342d3afa0334b59a3e38c0aed15e162b9abe9d46f95f34be44af47f3b493"
+            },
+            {
+              "path": "BepInEx/core/Mono.Cecil.dll",
+              "sha256": "7ae470288fff4a402899c254d0a76cefef55877f5c54f96e83c797cc5bb6e2f6"
+            },
+            {
+              "path": "BepInEx/core/Mono.Cecil.Mdb.dll",
+              "sha256": "5896d1898f616701fff18f3b2c71e6b844d2390ef9f41e1c5fccce8cb27c698e"
+            },
+            {
+              "path": "BepInEx/core/Mono.Cecil.Pdb.dll",
+              "sha256": "174db44a067f58561510af746f3caeb032037762c57a31c8d9ee32db25174984"
+            },
+            {
+              "path": "BepInEx/core/Mono.Cecil.Rocks.dll",
+              "sha256": "54ac539fb5ddc8b44c0e9acd0fcb7324f89d1a072edf8ebc1b06dd691e3d3927"
+            },
+            {
+              "path": "BepInEx/core/MonoMod.RuntimeDetour.dll",
+              "sha256": "40e49bb314391cd7bddc2644f8553eeba92c194b940836b103df16955c464e0c"
+            },
+            {
+              "path": "BepInEx/core/MonoMod.RuntimeDetour.xml",
+              "sha256": "54887808960d156550b37d602d08847607aa9e908d039f2765fb0b5e79394aa4"
+            },
+            {
+              "path": "BepInEx/core/MonoMod.Utils.dll",
+              "sha256": "9d1495f147ac93c4f81f84538c1a326e8f8a6aefc78d6289d798f3ce1162c5e9"
+            },
+            {
+              "path": "BepInEx/core/MonoMod.Utils.xml",
+              "sha256": "0577b362023a3432d6e8d7934c5eddc3e08fdbb19e191af083e341562c5ede38"
+            }
+          ],
+          "url": "https://github.com/SIGFAI/peakcraft-aeiron/releases/download/v0.1.0/BepInEx_win_x64_5.4.23.5.zip",
+          "sha256": "82f9878551030f54657792c0740d9d51a09500eeae1fba21106b0c441e6732c4",
+          "size": 639118
+        },
+        {
+          "src": "peakcraft-aeiron-peak.zip",
+          "dst": "{game}/BepInEx/plugins/PeakCraft-aeiron",
+          "unpack": true,
+          "contents": [
+            {
+              "path": "aeironnarmiento.PeakCraft.dll",
+              "sha256": "a4c146396e70a8930a30c35129739954bff3b150e3b798486122031345bfac81"
+            },
+            {
+              "path": "LICENSE-peak-plugin.txt",
+              "sha256": "ce1e4311dc615e86633b30c6bc345a983cccdc49734f968e7fb736744be897da"
+            },
+            {
+              "path": "LICENSE.txt",
+              "sha256": "adcf5b9966dd6f78b54bd6872d8fccfe4bd8e5d51186aa982dde7cb628087dd1"
+            }
+          ],
+          "url": "https://github.com/SIGFAI/peakcraft-aeiron/releases/download/v0.1.0/peakcraft-aeiron-peak.zip",
+          "sha256": "ff6e72568a5035a0126c5dc337bba9eccba6d5b911abb496c0d7736b4dd53cc6",
+          "size": 92137
+        }
+      ]
+    },
+    {
+      "game": "minecraft",
+      "strategy": "mrpack",
+      "jvm_args": [
+        "-Dskycraft.startHidden=true"
+      ],
+      "pack": {
+        "src": "peakcraft-aeiron.mrpack",
+        "url": "https://github.com/SIGFAI/peakcraft-aeiron/releases/download/v0.1.0/peakcraft-aeiron.mrpack",
+        "sha256": "8fc02e31c9d1af8fff025ed437ec00d3dc637aea09312336deeb5a8c7ad7c4e3",
+        "size": 236572
+      }
+    }
+  ],
+  "launch": [
+    {
+      "game": "minecraft"
+    },
+    {
+      "game": "peak",
+      "args": []
+    }
+  ],
+  "files": [
+    {
+      "name": "BepInEx_win_x64_5.4.23.5.zip",
+      "url": "https://github.com/SIGFAI/peakcraft-aeiron/releases/download/v0.1.0/BepInEx_win_x64_5.4.23.5.zip",
+      "sha256": "82f9878551030f54657792c0740d9d51a09500eeae1fba21106b0c441e6732c4",
+      "size": 639118
+    },
+    {
+      "name": "peakcraft-aeiron-peak.zip",
+      "url": "https://github.com/SIGFAI/peakcraft-aeiron/releases/download/v0.1.0/peakcraft-aeiron-peak.zip",
+      "sha256": "ff6e72568a5035a0126c5dc337bba9eccba6d5b911abb496c0d7736b4dd53cc6",
+      "size": 92137
+    },
+    {
+      "name": "peakcraft-aeiron.mrpack",
+      "url": "https://github.com/SIGFAI/peakcraft-aeiron/releases/download/v0.1.0/peakcraft-aeiron.mrpack",
+      "sha256": "8fc02e31c9d1af8fff025ed437ec00d3dc637aea09312336deeb5a8c7ad7c4e3",
+      "size": 236572
+    }
+  ],
+  "source": {
+    "repo": "https://github.com/aeironnsarmiento/PeakCraft",
+    "license": "MIT AND LGPL-2.1",
+    "upstream_license": "MIT",
+    "commit": "d07030ee527ee2a2facc989f5acae8a317968c02",
+    "hosted": "https://github.com/SIGFAI/peakcraft-aeiron",
+    "based_on": "https://github.com/chasmlol/SkyCraft",
+    "built": {
+      "by": "SIGF",
+      "commit": "d07030ee527ee2a2facc989f5acae8a317968c02",
+      "builder": "AWS EC2 i-0ad3d6f0c674e7c04 (c6i.xlarge, Windows Server 2022, terminated after the build); JDK Temurin 25.0.4.1+1 + Gradle 9.7.1 wrapper, .NET SDK 10.0.401; plugin compiled against PEAK Steam build 25667990 PEAK_Data/Managed (references only, never shipped or committed)",
+      "artifacts": {
+        "aeironnarmiento.PeakCraft.dll": "a4c146396e70a8930a30c35129739954bff3b150e3b798486122031345bfac81",
+        "LICENSE": "adcf5b9966dd6f78b54bd6872d8fccfe4bd8e5d51186aa982dde7cb628087dd1",
+        "peak-LICENSE": "ce1e4311dc615e86633b30c6bc345a983cccdc49734f968e7fb736744be897da",
+        "skycraft-0.1.2.jar": "33f83425c2518d6318718e07bcba913e3f2e770d59fe12bdf53ef3c0a17093de",
+        "THIRD-PARTY-NOTICES.md": "4ba714de6efea497a91fc7176777d10bb0133035d5954cb954c9a4c79b59e9b1"
+      }
+    },
+    "bundled": [
+      {
+        "name": "BepInEx",
+        "version": "5.4.23.5",
+        "repo": "https://github.com/BepInEx/BepInEx",
+        "commit": "57f1fb859bd4d0264cd2a59074d0e96c6a492a33",
+        "license": "MIT AND LGPL-2.1"
+      }
+    ],
+    "references": [
+      {
+        "name": "PEAK PEAK_Data/Managed",
+        "version": "Steam build 25667990",
+        "note": "from a copy SIGF owns, build-time references only, never shipped"
+      }
+    ]
+  },
+  "media": {},
+  "built_by": {
+    "author": "aeironnsarmiento",
+    "authors": [
+      "aeironnsarmiento",
+      "chasmlol"
+    ],
+    "packaged_by": "SIGF"
+  },
+  "idea_by": "aeironnsarmiento",
+  "built_at": "2026-10-06T00:00:00.000Z",
+  "status": "beta",
+  "issues": "https://github.com/aeironnsarmiento/PeakCraft/issues",
+  "notes": [
+    "You need PEAK on Steam and Minecraft: Java Edition, Windows only, and about 3 GB of free RAM for the hidden Minecraft. Made for PEAK 2.5.a: a game update may break parts of it.",
+    "Solo only: the author did not attempt multiplayer, and friends in a lobby would not see your Minecraft body or blocks. One player reported falling into the void after joining a lobby.",
+    "Not there yet: the summit ending cannot be reached (PEAK's flare cannot be used while Minecraft has the body), PEAK's items stay unused, and there is no digging into the mountain.",
+    "Cannot be installed together with PeakCraft by Keel62155: both use SkyCraft's link, so restore that one first. Run one \"Minecraft X\" mod at a time. Restore removes BepInEx and this PeakCraft.",
+    "Beta: report bugs to the author on the upstream issue tracker with BepInEx\\LogOutput.log."
+  ]
+}
